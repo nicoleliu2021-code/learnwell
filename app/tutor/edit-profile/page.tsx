@@ -224,9 +224,11 @@ export default function EditProfilePage() {
                 value={formData.headline}
                 onChange={(e) => updateField('headline', e.target.value)}
                 placeholder="e.g., Experienced Math Tutor | Former Teacher | K-8"
-                helper="This is the first thing parents see (60 characters max)"
                 maxLength={60}
               />
+              <p className="mt-1 text-sm text-gray-500">
+                This is the first thing parents see (60 characters max)
+              </p>
             </div>
 
             {/* Bio */}
@@ -302,17 +304,21 @@ export default function EditProfilePage() {
                 onChange={(e) => updateField('yearsExperience', e.target.value)}
                 placeholder="5"
               />
-              <Input
-                label="Hourly Rate (USD)"
-                type="number"
-                required
-                min="0"
-                step="0.01"
-                value={formData.hourlyRate}
-                onChange={(e) => updateField('hourlyRate', e.target.value)}
-                placeholder="50"
-                helper="Your take-home rate (we don't charge yet)"
-              />
+              <div>
+                <Input
+                  label="Hourly Rate (USD)"
+                  type="number"
+                  required
+                  min="0"
+                  step="0.01"
+                  value={formData.hourlyRate}
+                  onChange={(e) => updateField('hourlyRate', e.target.value)}
+                  placeholder="50"
+                />
+                <p className="mt-1 text-sm text-gray-500">
+                  Your take-home rate (we don't charge yet)
+                </p>
+              </div>
             </div>
 
             {/* Location Type */}
