@@ -1,6 +1,11 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResend() {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY is not configured')
+  }
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 interface BookingRequestEmailParams {
   tutorEmail: string
@@ -42,7 +47,7 @@ export async function sendBookingRequestEmail({
   dashboardUrl
 }: BookingRequestEmailParams) {
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'LearnWell <noreply@learnwell.com>',
       to: tutorEmail,
       subject: `New Booking Request from ${parentName}`,
@@ -97,7 +102,7 @@ export async function sendBookingAcceptedEmail({
   subject
 }: BookingAcceptedEmailParams) {
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'LearnWell <noreply@learnwell.com>',
       to: parentEmail,
       subject: `${tutorName} Accepted Your Booking Request!`,
@@ -145,7 +150,7 @@ export async function sendBookingDeclinedEmail({
   reason
 }: BookingDeclinedEmailParams) {
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'LearnWell <noreply@learnwell.com>',
       to: parentEmail,
       subject: `Update on Your Booking Request`,
