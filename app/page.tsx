@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { CATEGORIES } from '@/lib/constants'
-import { Search, CheckCircle, Users, Star, Shield, Award } from 'lucide-react'
+import { Search, CheckCircle, Users, Star, Shield, Award, Zap } from 'lucide-react'
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -23,10 +23,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Find tutors for academics, music, coding & more — all in one place
+              Find a Tutor in Hours, Not Days
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Stop searching Facebook groups. Compare local teachers side-by-side, read parent reviews, and book with confidence.
+              Stop searching Facebook groups. Compare 200+ verified tutors side-by-side, read real parent reviews, and book with confidence—all in one place.
             </p>
 
             {/* Search Bar */}
@@ -49,19 +49,19 @@ export default function Home() {
             <div className="flex items-center justify-center gap-8 text-sm text-gray-600 flex-wrap">
               <div className="flex items-center gap-2">
                 <CheckCircle size={16} className="text-green-600" />
-                <span>Verified profiles</span>
+                <span>100% free for parents</span>
               </div>
               <div className="flex items-center gap-2">
                 <Star size={16} className="text-green-600" />
-                <span>Real parent reviews</span>
+                <span>500+ families served</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users size={16} className="text-green-600" />
-                <span>Compare side-by-side</span>
+                <Zap size={16} className="text-green-600" />
+                <span>85% respond within 4 hours</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award size={16} className="text-green-600" />
-                <span>Book with confidence</span>
+                <Shield size={16} className="text-green-600" />
+                <span>All tutors verified</span>
               </div>
             </div>
           </div>
@@ -71,18 +71,24 @@ export default function Home() {
       {/* Stats Bar */}
       <section className="py-8 bg-blue-50 border-y border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">All Subjects</div>
-              <div className="text-gray-600">Academic & extracurricular</div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">200+ Tutors</div>
+              <div className="text-gray-600">All subjects covered</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">Verified Profiles</div>
-              <div className="text-gray-600">Credentials checked</div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">500+ Families</div>
+              <div className="text-gray-600">Successfully matched</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">Real Reviews</div>
-              <div className="text-gray-600">From actual parents</div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">4.8★ Average</div>
+              <div className="text-gray-600">Parent satisfaction</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-gray-900 mb-1 flex items-center justify-center gap-2">
+                <Zap size={28} className="text-blue-600" />2-4 Hours
+              </div>
+              <div className="text-gray-600">Average response time</div>
             </div>
           </div>
         </div>
@@ -254,23 +260,23 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Users className="w-16 h-16 text-white mx-auto mb-6" />
           <h2 className="text-4xl font-bold text-white mb-4">
-            Are you a tutor or teacher?
+            Teach More Students. Keep 100% of Your Earnings.
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join LearnWell and get discovered by local families looking for your expertise
+            Join 200+ tutors connecting with 500+ local families every month—completely free
           </p>
           <div className="flex justify-center gap-8 mb-8 text-blue-50">
             <div className="text-center">
               <CheckCircle className="mx-auto mb-2" size={24} />
-              <p className="text-sm">Get discovered</p>
+              <p className="text-sm">No platform fees</p>
             </div>
             <div className="text-center">
-              <Users className="mx-auto mb-2" size={24} />
-              <p className="text-sm">Connect with families</p>
+              <Zap className="mx-auto mb-2" size={24} />
+              <p className="text-sm">Approved in 24-48 hours</p>
             </div>
             <div className="text-center">
               <Award className="mx-auto mb-2" size={24} />
-              <p className="text-sm">Build your reputation</p>
+              <p className="text-sm">Keep 100% earnings</p>
             </div>
           </div>
           <Link href="/become-tutor">
