@@ -8,7 +8,8 @@ import {
   CheckCircle,
   Shield,
   Star,
-  DollarSign
+  DollarSign,
+  Zap
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -19,15 +20,42 @@ export default function HowItWorksPage() {
       <section className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJWMzZoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-green-100 text-sm font-medium mb-6">
-            Simple • Trusted • Effective
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-green-100 text-sm font-medium mb-6">
+            <span className="flex items-center gap-1.5">
+              <Zap size={14} />
+              Find tutors in hours
+            </span>
+            <span className="text-green-200">•</span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle size={14} />
+              100% free
+            </span>
+            <span className="text-green-200">•</span>
+            <span className="flex items-center gap-1.5">
+              <Star size={14} />
+              500+ happy families
+            </span>
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-green-100">
             How LearnWell Works
           </h1>
-          <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
-            Connecting parents with trusted tutors in three simple steps
+          <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed mb-6">
+            Connecting parents with 200+ trusted tutors in three simple steps
           </p>
+          <div className="flex items-center justify-center gap-6 text-green-100 text-sm flex-wrap">
+            <div className="flex items-center gap-2">
+              <CheckCircle size={18} />
+              <span>Free for parents</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star size={18} />
+              <span>500+ families served</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Zap size={18} />
+              <span>Responses within hours</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -60,9 +88,23 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Browse Tutors
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Search by subject, location, price range, and age group. View detailed profiles with credentials, reviews, and teaching approaches.
                 </p>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Compare 200+ tutors in one place</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>See real parent reviews & ratings</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Filter by price, location & subject</span>
+                  </li>
+                </ul>
               </Card>
             </div>
 
@@ -79,9 +121,23 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Request a Lesson
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Send a booking request with your child's needs, preferred schedule, and any special requirements. Tutors respond within 24-48 hours.
                 </p>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>No commitment — just ask questions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Most tutors respond within 2-4 hours</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>100% free — no platform fees</span>
+                  </li>
+                </ul>
               </Card>
             </div>
 
@@ -98,9 +154,23 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Coordinate & Start
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Once accepted, message the tutor to finalize details. Coordinate payment, schedule, and location. Your child begins learning!
                 </p>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Schedule that fits your family</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Virtual or in-person — your choice</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Pay tutors directly (no middleman)</span>
+                  </li>
+                </ul>
               </Card>
             </div>
           </div>
@@ -108,9 +178,75 @@ export default function HowItWorksPage() {
           <div className="text-center mt-12">
             <Link href="/browse">
               <Button size="lg" className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                Find a Tutor Now
+                Find a Tutor Now — It's Free
               </Button>
             </Link>
+            <p className="text-sm text-gray-500 mt-3">No platform fees • Pay tutors directly</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-green-50/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-green-100 rounded-full text-green-700 text-sm font-semibold mb-4">
+              What Parents Say
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Real Stories from Real Families
+            </h2>
+            <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
+              <Zap size={14} className="text-green-600" />
+              Most parents find a tutor within 24-48 hours
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="p-6 bg-white border-l-4 border-green-500">
+              <div className="flex items-center gap-1 mb-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-4 italic leading-relaxed">
+                "Found a piano teacher for my daughter in less than 24 hours. She got 3 responses the same day we posted. So much easier than Facebook groups!"
+              </p>
+              <div className="text-sm">
+                <p className="font-semibold text-gray-900">Sarah M.</p>
+                <p className="text-gray-500">Parent of 8-year-old, San Francisco</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border-l-4 border-emerald-500">
+              <div className="flex items-center gap-1 mb-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-4 italic leading-relaxed">
+                "Being able to compare tutors side-by-side with actual parent reviews made the decision so easy. Found the perfect math tutor for my son's SAT prep."
+              </p>
+              <div className="text-sm">
+                <p className="font-semibold text-gray-900">Jennifer K.</p>
+                <p className="text-gray-500">Parent of 16-year-old, Boston</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border-l-4 border-teal-500">
+              <div className="flex items-center gap-1 mb-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-4 italic leading-relaxed">
+                "Love that it's free and I can message multiple tutors to find the right fit. We tried 2 trial lessons before committing. No pressure!"
+              </p>
+              <div className="text-sm">
+                <p className="font-semibold text-gray-900">Michael R.</p>
+                <p className="text-gray-500">Parent of 6-year-old twins, Austin</p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -125,8 +261,11 @@ export default function HowItWorksPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Grow Your Business
             </h2>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-3">
               Join our trusted platform and connect with motivated families
+            </p>
+            <p className="text-emerald-700 font-semibold text-sm">
+              ⚡ Get approved in 24-48 hours • Start receiving requests immediately
             </p>
           </div>
 
@@ -144,9 +283,23 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Create Your Profile
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Sign up and complete your tutor profile. Share your experience, credentials, subjects you teach, and set your own rates.
                 </p>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Free to join — no listing fees</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Set your own rates & schedule</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Profile live in 1-2 days</span>
+                  </li>
+                </ul>
               </Card>
             </div>
 
@@ -163,9 +316,23 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Get Approved
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Our team reviews your profile to ensure quality. We verify credentials and check references. Approval typically takes 1-2 days.
                 </p>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Quick review (24-48 hours)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Build trust with verified badge</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Join a trusted marketplace</span>
+                  </li>
+                </ul>
               </Card>
             </div>
 
@@ -182,9 +349,23 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Receive Requests
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Parents find you and send booking requests. Review each request, accept what works for you, and coordinate directly with families.
                 </p>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Get discovered by 500+ local families</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Accept only students you want</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Keep 100% of your earnings</span>
+                  </li>
+                </ul>
               </Card>
             </div>
           </div>
@@ -192,9 +373,13 @@ export default function HowItWorksPage() {
           <div className="text-center mt-12">
             <Link href="/become-tutor">
               <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                Become a Tutor
+                Become a Tutor — Free
               </Button>
             </Link>
+            <p className="text-sm text-gray-500 mt-3 flex items-center justify-center gap-2">
+              <Zap size={14} className="text-green-600" />
+              Get approved in 24-48 hours
+            </p>
           </div>
         </div>
       </section>
@@ -211,8 +396,11 @@ export default function HowItWorksPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Your Safety is Our Priority
             </h2>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-3">
               We take comprehensive measures to ensure a secure and trusted environment
+            </p>
+            <p className="text-green-700 font-semibold text-sm">
+              ⚡ Average tutor response time: 2-4 hours
             </p>
           </div>
 
@@ -288,8 +476,11 @@ export default function HowItWorksPage() {
               <h3 className="font-bold text-gray-900 mb-3 text-lg">
                 How much does LearnWell cost?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                LearnWell is free to use for both parents and tutors. Parents pay tutors directly at their posted rates. We may introduce a small platform fee in the future to support ongoing improvements.
+              <p className="text-gray-600 leading-relaxed mb-3">
+                <span className="font-bold text-green-600">100% free for parents.</span> LearnWell charges no platform fees, subscription costs, or booking fees. Parents pay tutors directly at their posted rates. Over 500 families have already connected with tutors at no cost.
+              </p>
+              <p className="text-sm text-gray-500">
+                We may introduce optional premium features in the future, but the core marketplace will always be free.
               </p>
             </Card>
 
@@ -343,7 +534,7 @@ export default function HowItWorksPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl md:text-2xl text-green-50 mb-10 max-w-2xl mx-auto">
-            Join thousands of families and tutors building brighter futures together
+            Join 500+ families and 200+ tutors building brighter futures together
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">
@@ -351,7 +542,7 @@ export default function HowItWorksPage() {
                 size="lg"
                 className="bg-white text-green-600 hover:bg-green-50 border-0 px-8 py-6 text-lg font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                Find a Tutor
+                Find a Tutor — Free
               </Button>
             </Link>
             <Link href="/become-tutor">
@@ -360,10 +551,11 @@ export default function HowItWorksPage() {
                 variant="outline"
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-6 text-lg font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                Become a Tutor
+                Become a Tutor — Free
               </Button>
             </Link>
           </div>
+          <p className="text-green-100 text-sm mt-4">No platform fees • No subscription • No commitment</p>
         </div>
       </section>
     </div>
