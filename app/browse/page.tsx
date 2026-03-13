@@ -9,7 +9,7 @@ import { TutorCard } from '@/components/tutor/TutorCard'
 import { SUBJECTS, AGE_GROUPS } from '@/lib/constants'
 import { fetchTutors, searchTutors } from '@/lib/api/tutors'
 import { TutorProfile, SearchFilters, AgeGroup, LocationType } from '@/types'
-import { Search, Star } from 'lucide-react'
+import { Search, Star, Zap, CheckCircle } from 'lucide-react'
 
 function BrowsePageContent() {
   const searchParams = useSearchParams()
@@ -147,10 +147,31 @@ function BrowsePageContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">Find Your Perfect Tutor</h1>
-          <p className="text-lg text-gray-600">
-            Compare teachers for academics, music, coding, and more — all verified and reviewed by real parents
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">Find Your Perfect Tutor in Hours</h1>
+          <p className="text-lg text-gray-600 mb-4">
+            Compare 200+ verified tutors for academics, music, coding, and more — all reviewed by real parents
           </p>
+          <div className="flex items-center justify-center gap-6 text-sm text-gray-600 flex-wrap">
+            <div className="flex items-center gap-1.5">
+              <span className="text-2xl font-bold text-blue-600">200+</span>
+              <span>Tutors</span>
+            </div>
+            <span className="text-gray-300">|</span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-2xl font-bold text-blue-600">4.8★</span>
+              <span>Avg Rating</span>
+            </div>
+            <span className="text-gray-300">|</span>
+            <div className="flex items-center gap-1.5">
+              <Zap size={18} className="text-green-600" />
+              <span>2-4hr Response</span>
+            </div>
+            <span className="text-gray-300">|</span>
+            <div className="flex items-center gap-1.5">
+              <CheckCircle size={16} className="text-green-600" />
+              <span>100% Free</span>
+            </div>
+          </div>
         </div>
 
         {/* Search Bar */}
