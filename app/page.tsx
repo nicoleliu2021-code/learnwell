@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
-import { Badge } from '@/components/ui/Badge'
 import { CATEGORIES } from '@/lib/constants'
 import { Search, CheckCircle, Users, Star, Shield, Award } from 'lucide-react'
 
@@ -24,10 +23,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Find the perfect tutor for your child
+              Find tutors for academics, music, coding & more — all in one place
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Vetted local tutors and teachers for academics, music, coding, and more — all in one trusted place
+              Stop searching Facebook groups. Compare local teachers side-by-side, read parent reviews, and book with confidence.
             </p>
 
             {/* Search Bar */}
@@ -35,7 +34,7 @@ export default function Home() {
               <Search className="ml-3 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder="What does your child need help with?"
+                placeholder="Try: piano teacher, math tutor, or coding for kids"
                 className="flex-1 px-3 py-3 outline-none text-gray-900"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -50,20 +49,40 @@ export default function Home() {
             <div className="flex items-center justify-center gap-8 text-sm text-gray-600 flex-wrap">
               <div className="flex items-center gap-2">
                 <CheckCircle size={16} className="text-green-600" />
-                <span>All tutors vetted</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield size={16} className="text-green-600" />
-                <span>Background checked</span>
+                <span>Verified profiles</span>
               </div>
               <div className="flex items-center gap-2">
                 <Star size={16} className="text-green-600" />
                 <span>Real parent reviews</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award size={16} className="text-green-600" />
-                <span>Try risk-free</span>
+                <Users size={16} className="text-green-600" />
+                <span>Compare side-by-side</span>
               </div>
+              <div className="flex items-center gap-2">
+                <Award size={16} className="text-green-600" />
+                <span>Book with confidence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="py-8 bg-blue-50 border-y border-blue-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">All Subjects</div>
+              <div className="text-gray-600">Academic & extracurricular</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">Verified Profiles</div>
+              <div className="text-gray-600">Credentials checked</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">Real Reviews</div>
+              <div className="text-gray-600">From actual parents</div>
             </div>
           </div>
         </div>
@@ -73,24 +92,24 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-            What are you looking for?
+            Browse by Category
           </h2>
           <p className="text-gray-600 text-center mb-12">
-            Browse tutors and teachers by subject area
+            From homework help to extracurriculars — find the right tutor for any subject
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CATEGORIES.map((category) => (
               <Link key={category.id} href={`/browse?category=${category.id}`}>
-                <Card hover className="p-6 text-center h-full">
-                  <div className="text-4xl mb-3">{category.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <Card hover className="p-6 text-center h-full transition-all hover:shadow-lg">
+                  <div className="text-5xl mb-4">{category.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {category.name}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                     {category.subjects.join(', ')}
                   </p>
-                  <span className="text-blue-600 text-sm font-medium">
+                  <span className="text-blue-600 text-sm font-semibold inline-flex items-center gap-1">
                     Browse tutors →
                   </span>
                 </Card>
@@ -113,10 +132,10 @@ export default function Home() {
                 1
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Search & Compare
+                Search all subjects in one place
               </h3>
               <p className="text-gray-600">
-                Filter by subject, age, location, and price. View credentials, reviews, and teaching styles.
+                No more Facebook groups or Google searches. Browse tutors for academics, music, coding, sports, and more — all in one marketplace.
               </p>
             </div>
 
@@ -125,10 +144,10 @@ export default function Home() {
                 2
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Review Profiles
+                Compare profiles & read reviews
               </h3>
               <p className="text-gray-600">
-                See detailed profiles with credentials, parent reviews, and teaching approach.
+                See credentials, parent reviews, teaching styles, and rates side-by-side. Find the perfect match for your child's needs.
               </p>
             </div>
 
@@ -137,10 +156,10 @@ export default function Home() {
                 3
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Book a Trial
+                Book a lesson with confidence
               </h3>
               <p className="text-gray-600">
-                Request a lesson, meet the tutor, and find the right fit for your child.
+                Request a trial lesson, message the tutor, and schedule your first session. Most tutors respond within hours.
               </p>
             </div>
           </div>
@@ -152,92 +171,115 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Shield className="w-16 h-16 text-blue-600 mx-auto mb-6" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Your child's safety is our priority
+            Trust and transparency built in
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            All tutors complete identity verification and credential checks. Many have completed background screenings.
+            Browse verified profiles, read honest parent reviews, and see credentials before you book. Many tutors have completed additional background screenings for extra peace of mind.
           </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Badge variant="success" icon={<CheckCircle size={14} />}>
-              ID Verified
-            </Badge>
-            <Badge variant="success" icon={<CheckCircle size={14} />}>
-              Credentials Checked
-            </Badge>
-            <Badge variant="success" icon={<CheckCircle size={14} />}>
-              Background Screened
-            </Badge>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-8">
+            <div className="text-left">
+              <CheckCircle className="text-green-600 mb-2" size={24} />
+              <h3 className="font-semibold text-gray-900 mb-1">Verified Profiles</h3>
+              <p className="text-sm text-gray-600">Identity and credentials confirmed</p>
+            </div>
+            <div className="text-left">
+              <Star className="text-green-600 mb-2" size={24} />
+              <h3 className="font-semibold text-gray-900 mb-1">Real Reviews</h3>
+              <p className="text-sm text-gray-600">Honest feedback from real parents</p>
+            </div>
+            <div className="text-left">
+              <Shield className="text-green-600 mb-2" size={24} />
+              <h3 className="font-semibold text-gray-900 mb-1">Background Checks</h3>
+              <p className="text-sm text-gray-600">Many tutors screened (optional)</p>
+            </div>
           </div>
-          <Link href="/safety" className="inline-block mt-6">
-            <Button variant="outline">Learn about our vetting process</Button>
+          <Link href="/safety" className="inline-block mt-2">
+            <Button variant="outline">Learn about safety & vetting</Button>
           </Link>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Why LearnWell Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Parents trust LearnWell
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            Why parents choose LearnWell
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Stop juggling Facebook groups, Google searches, and word-of-mouth recommendations. Find everyone in one place.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="p-6">
-              <div className="flex items-center gap-1 mb-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                ))}
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Search className="text-blue-600" size={24} />
               </div>
-              <p className="text-gray-700 mb-4">
-                Finding a piano teacher used to mean hours on Facebook groups. LearnWell made it so easy to compare options and find the perfect fit for my daughter.
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                All subjects, one search
+              </h3>
+              <p className="text-gray-600">
+                No more hunting across Facebook, Nextdoor, and Google. Browse tutors for math, piano, coding, Spanish, and everything in between.
               </p>
-              <p className="text-sm text-gray-500">— Sarah M., mom of 2</p>
             </Card>
 
             <Card className="p-6">
-              <div className="flex items-center gap-1 mb-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                ))}
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Users className="text-blue-600" size={24} />
               </div>
-              <p className="text-gray-700 mb-4">
-                My son was struggling with math. Within a week of using LearnWell, we found an amazing tutor who really understands how to explain concepts clearly.
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Compare side-by-side
+              </h3>
+              <p className="text-gray-600">
+                See rates, reviews, credentials, and availability all in one place. Make an informed decision without the back-and-forth.
               </p>
-              <p className="text-sm text-gray-500">— Michael T., dad of 3</p>
             </Card>
 
             <Card className="p-6">
-              <div className="flex items-center gap-1 mb-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                ))}
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Shield className="text-blue-600" size={24} />
               </div>
-              <p className="text-gray-700 mb-4">
-                I love that I can see reviews from other parents and verify credentials before booking. The peace of mind is worth everything.
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Verified & reviewed
+              </h3>
+              <p className="text-gray-600">
+                Read honest reviews from real parents. See verified credentials. Book with confidence knowing you're making the right choice.
               </p>
-              <p className="text-sm text-gray-500">— Jennifer L., mom of 1</p>
             </Card>
           </div>
         </div>
       </section>
 
       {/* CTA for Tutors */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Users className="w-16 h-16 text-white mx-auto mb-6" />
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Are you a tutor or instructor?
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Are you a tutor or teacher?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join LearnWell and connect with local families
+            Join LearnWell and get discovered by local families looking for your expertise
           </p>
+          <div className="flex justify-center gap-8 mb-8 text-blue-50">
+            <div className="text-center">
+              <CheckCircle className="mx-auto mb-2" size={24} />
+              <p className="text-sm">Get discovered</p>
+            </div>
+            <div className="text-center">
+              <Users className="mx-auto mb-2" size={24} />
+              <p className="text-sm">Connect with families</p>
+            </div>
+            <div className="text-center">
+              <Award className="mx-auto mb-2" size={24} />
+              <p className="text-sm">Build your reputation</p>
+            </div>
+          </div>
           <Link href="/become-tutor">
             <Button
               variant="secondary"
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg"
             >
-              Apply to Teach
+              Apply to Teach on LearnWell
             </Button>
           </Link>
         </div>

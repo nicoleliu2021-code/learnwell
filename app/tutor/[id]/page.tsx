@@ -21,6 +21,7 @@ import {
   MessageCircle,
   Calendar,
   Shield,
+  Users,
 } from 'lucide-react'
 
 export default function TutorProfilePage() {
@@ -190,20 +191,28 @@ export default function TutorProfilePage() {
                     {tutor.headline}
                   </h1>
 
-                  {/* Rating */}
-                  {tutor.review_count > 0 && (
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="flex items-center gap-1">
-                        <Star size={20} className="fill-yellow-400 text-yellow-400" />
-                        <span className="text-xl font-bold text-gray-900">
-                          {tutor.rating_average.toFixed(1)}
+                  {/* Rating and Response */}
+                  <div className="mb-4">
+                    {tutor.review_count > 0 && (
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center gap-1">
+                          <Star size={20} className="fill-yellow-400 text-yellow-400" />
+                          <span className="text-xl font-bold text-gray-900">
+                            {tutor.rating_average.toFixed(1)}
+                          </span>
+                        </div>
+                        <span className="text-gray-600">
+                          ({tutor.review_count} {tutor.review_count === 1 ? 'review' : 'reviews'})
                         </span>
                       </div>
-                      <span className="text-gray-600">
-                        ({tutor.review_count} {tutor.review_count === 1 ? 'review' : 'reviews'})
-                      </span>
-                    </div>
-                  )}
+                    )}
+                    {tutor.rating_average >= 4.8 && tutor.review_count >= 10 && (
+                      <p className="text-sm text-green-700 font-medium flex items-center gap-1">
+                        <CheckCircle size={14} />
+                        Usually responds within 2 hours
+                      </p>
+                    )}
+                  </div>
 
                   {/* Verification Badges */}
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -239,10 +248,45 @@ export default function TutorProfilePage() {
               </div>
             </Card>
 
+            {/* Why Choose This Tutor */}
+            {(tutor.rating_average >= 4.5 || tutor.review_count >= 5 || tutor.years_experience >= 3) && (
+              <Card className="p-6 bg-blue-50 border-blue-200">
+                <h2 className="text-lg font-semibold text-gray-900 mb-3">
+                  Why parents choose {tutor.headline.split(' ')[0] || 'this tutor'}
+                </h2>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {tutor.rating_average >= 4.5 && tutor.review_count >= 5 && (
+                    <li className="flex items-start gap-2">
+                      <Star size={16} className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                      <span>Highly rated by parents ({tutor.rating_average.toFixed(1)} stars)</span>
+                    </li>
+                  )}
+                  {tutor.years_experience >= 3 && (
+                    <li className="flex items-start gap-2">
+                      <Award size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>{tutor.years_experience} years of teaching experience</span>
+                    </li>
+                  )}
+                  {tutor.credentials_verified && (
+                    <li className="flex items-start gap-2">
+                      <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                      <span>Verified credentials and background</span>
+                    </li>
+                  )}
+                  {tutor.review_count >= 10 && (
+                    <li className="flex items-start gap-2">
+                      <Users size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>Trusted by {tutor.review_count}+ families</span>
+                    </li>
+                  )}
+                </ul>
+              </Card>
+            )}
+
             {/* About */}
             <Card className="p-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">About Me</h2>
-              <p className="text-gray-700 whitespace-pre-line">{tutor.bio}</p>
+              <p className="text-gray-700 whitespace-pre-line leading-relaxed">{tutor.bio}</p>
             </Card>
 
             {/* Subjects & Age Groups */}
@@ -375,20 +419,28 @@ export default function TutorProfilePage() {
             <Card className="p-6 sticky top-20">
               {/* Price */}
               <div className="text-center mb-6 pb-6 border-b border-gray-200">
-                <div className="text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-5xl font-bold text-gray-900 mb-2">
                   ${tutor.hourly_rate}
                 </div>
-                <div className="text-gray-600">per hour</div>
+                <div className="text-gray-600 text-lg">per hour</div>
+                {tutor.rating_average >= 4.8 && tutor.review_count >= 10 && (
+                  <p className="text-sm text-green-700 mt-3 font-medium">
+                    Fast response time
+                  </p>
+                )}
               </div>
 
               {/* CTA Buttons */}
               <div className="space-y-3 mb-6">
                 <Link href={`/booking/request?tutor=${tutorId}`} className="block">
-                  <Button size="lg" className="w-full">
+                  <Button size="lg" className="w-full text-base py-6">
                     <Calendar size={20} className="mr-2" />
-                    Request Lesson
+                    Request a Lesson
                   </Button>
                 </Link>
+                <p className="text-xs text-center text-gray-500 -mt-1 mb-3">
+                  Most tutors respond within 2-4 hours
+                </p>
                 <Link href={`/messages/new?tutor=${tutorId}`} className="block">
                   <Button variant="outline" size="lg" className="w-full">
                     <MessageCircle size={20} className="mr-2" />
